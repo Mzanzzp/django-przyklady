@@ -5,4 +5,4 @@ from django.shortcuts import render
 
 
 def listviev(request):
-    return HttpResponse("lista postow")
+    return HttpResponse("lista ksiazek")
