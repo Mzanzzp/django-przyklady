@@ -1,4 +1,10 @@
+# core modules
 asgiref==3.5.2
 Django==4.0.6
 sqlparse==0.4.2
 tzdata==2022.1
+faker==13.15.1
+
+# pip install -r requierments.txt
+# dev
+ipython

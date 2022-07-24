@@ -5,4 +5,8 @@ from django.shortcuts import render
 
 
 def listviev(request):
-    return HttpResponse("lista postow")
+    return render(
+        request,
+        "posty.html",
+        {"dane": "hej"}
+    )

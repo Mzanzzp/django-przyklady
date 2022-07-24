@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+
+    <table class="table table-stripped">
+        <tr>
+            <th>Tytuł</th>
+            <td>{{ book.title|title }}</td>
+
+        </tr>
+        <tr>
+            <th>Autor</th>
+            <td>{{ book.author|title }}</td>
+        </tr>
+        <tr>
+            <th>Opis</th>
+            <td>{{ book.description }}</td>
+        </tr>
+
+
+    </table>
+
+
+{% endblock %}
