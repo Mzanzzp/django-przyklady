@@ -1,27 +1,27 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
-from books.services import BookService
-from books.utils import read_from_csv
+from books.services import book_service
 
 
-def listviev(request):
-    books = BookService.get_all_books()
-    # books = read_from_csv("books/data/data.csv")
-    return render(
-        request,
-        "books.html",
-        context = {'books': books},
-
-    )
-
-def details(request, book_id: int):
-    # books = read_from_csv("books/data/data.csv")
-    # book = books[book_id-1]
-    book = BookService.get_book(book_id)
+# books/
+def listview(request):
+    print(request.GET)
+    q = request.GET.get("q")
+    if q:
+        books = book_service.filter(q=q)
+    else:
+        books = book_service.get_all_books()
     return render(
         request=request,
-        template_name="details.html",
+        template_name="books/list.html",
+        context={'books': books}
+    )
+
+
+def details(request, book_id: int):
+    book = book_service.get_book(book_id)
+    return render(
+        request=request,
+        template_name="books/details.html",
         context={'book': book}
     )
